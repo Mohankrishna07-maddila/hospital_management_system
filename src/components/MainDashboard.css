@@ -1,0 +1,391 @@
+/* Base styling for main dashboard */
+.main-dashboard {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  /* Animated gradient background */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Container for dashboard content */
+  .dashboard-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Welcome section styling */
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .welcome-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: float-text 6s ease-in-out infinite;
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+  }
+  
+  /* Card container */
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Card styling with animations */
+  .card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add a subtle shine effect on hover */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: transform 0.7s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .card:hover::before {
+    transform: translateX(50%) translateY(50%) rotate(30deg);
+  }
+  
+  .card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Button styling with animations */
+  .action-button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  .action-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .action-button:hover::after {
+    left: 100%;
+  }
+  
+  .patient-button {
+    background: linear-gradient(to right, #4299e1, #3182ce);
+    box-shadow: 0 4px 10px rgba(66, 153, 225, 0.3);
+  }
+  
+  .patient-button:hover {
+    background: linear-gradient(to right, #3182ce, #2b6cb0);
+    transform: scale(1.02);
+  }
+  
+  .staff-button {
+    background: linear-gradient(to right, #667eea, #5a67d8);
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+  }
+  
+  .staff-button:hover {
+    background: linear-gradient(to right, #5a67d8, #4c51bf);
+    transform: scale(1.02);
+  }
+  
+  /* Animated background elements */
+  .bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+  
+  .floating-circle-1 {
+    top: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #4299e1, #a3bffa);
+    animation: float-slow 15s ease-in-out infinite;
+  }
+  
+  .floating-circle-2 {
+    top: 20%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #7f9cf5, #a3bffa);
+    animation: float-medium 12s ease-in-out infinite;
+  }
+  
+  .floating-circle-3 {
+    bottom: -15%;
+    left: 25%;
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, #5a67d8, #7f9cf5);
+    animation: float-fast 10s ease-in-out infinite;
+  }
+  
+  .floating-plus {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+  }
+  
+  .floating-plus::before,
+  .floating-plus::after {
+    content: '';
+    position: absolute;
+    background: #4c51bf;
+    border-radius: 5px;
+  }
+  
+  .floating-plus::before {
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 100%;
+  }
+  
+  .floating-plus::after {
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+  }
+  
+  .floating-plus-1 {
+    top: 15%;
+    left: 20%;
+    transform: rotate(15deg);
+    animation: float-plus 8s ease-in-out infinite;
+  }
+  
+  .floating-plus-2 {
+    top: 65%;
+    right: 15%;
+    transform: rotate(-10deg);
+    animation: float-plus 12s ease-in-out infinite reverse;
+  }
+  
+  /* Pulse indicators */
+  .pulse-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .pulse-dot-1 {
+    background: #4299e1;
+    animation: pulse 3s infinite;
+  }
+  
+  .pulse-dot-2 {
+    background: #5a67d8;
+    animation: pulse 3s infinite 0.3s;
+  }
+  
+  .pulse-dot-3 {
+    background: #6b46c1;
+    animation: pulse 3s infinite 0.6s;
+  }
+  
+  /* Animation keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float-text {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(30px, 20px) rotate(5deg); }
+  }
+  
+  @keyframes float-medium {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, 30px) rotate(-5deg); }
+  }
+  
+  @keyframes float-fast {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(3deg); }
+  }
+  
+  @keyframes float-plus {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15px, 10px) rotate(10deg); }
+    50% { transform: translate(0, 20px) rotate(0deg); }
+    75% { transform: translate(-15px, 10px) rotate(-10deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+  }
+  
+  /* Animated wave at the bottom */
+  .wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 0;
+  }
+  
+  .wave-container svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+  }
+  
+  .wave-container .shape-fill {
+    fill: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Media queries */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+  
+    .welcome-title {
+      font-size: 2.5rem;
+    }
+  
+    .welcome-subtitle {
+      font-size: 1.25rem;
+    }
+  
+    .card {
+      padding: 1.5rem;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+    }
+    
+    .floating-circle-1,
+    .floating-circle-2,
+    .floating-circle-3 {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .card-container {
+      flex-direction: row;
+    }
+  
+    .card {
+      flex: 1;
+    }
+  }
